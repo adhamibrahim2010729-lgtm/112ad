@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerLink - Graduation Project Portfolio 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        cyanAccent: '#06b6d4',
+                        emeraldAccent: '#10b981',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', 'Cairo', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-hover:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/30">
+                <i class="fa-solid me-0.5 fa-briefcase"></i>
+            </div>
+            <div>
+                <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                    CAREER<span class="gradient-text">LINK</span>
+                </span>
+                <span class="text-xs text-slate-400 block -mt-1 font-medium">Graduation Project 2026</span>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-300">
+            <a href="#team" class="hover:text-indigo-400 transition-colors">Team</a>
+            <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+            <a href="#problem" class="hover:text-indigo-400 transition-colors">Problem & Solution</a>
+            <a href="#features" class="hover:text-indigo-400 transition-colors">Features</a>
+            <a href="#sdgs" class="hover:text-indigo-400 transition-colors">SDGs</a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <a href="#user-journey" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-600/20">
+                <span>Explore Journey</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-16 bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 p-6 z-40 space-y-3">
+        <a href="#about" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">01. About CareerLink</a>
+        <a href="#problem" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">02. Problem Statement</a>
+        <a href="#objectives" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">03. Project Objectives</a>
+        <a href="#solution" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">04. Our Solution</a>
+        <a href="#users" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">05. Target Users</a>
+        <a href="#schools" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">06. Tech Schools</a>
+        <a href="#features" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">07. Main Features</a>
+        <a href="#user-journey" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">08. User Journey</a>
+        <a href="#tech" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">09 & 10. Tech & Architecture</a>
+        <a href="#sdgs" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">11. SDGs</a>
+        <a href="#team" class="block py-2 text-slate-200 hover:text-indigo-400 border-b border-slate-800/50">12. Team Members</a>
+        <a href="#future" class="block py-2 text-slate-200 hover:text-indigo-400">13 & 14. Future & Conclusion</a>
+    </div>
+
+    <!-- Main Container with Sidebar + Content -->
+    <div class="flex-1 flex max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 gap-8">
+        
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="hidden lg:block w-72 shrink-0">
+            <div class="sticky top-24 glass-panel rounded-2xl p-4 max-h-[calc(100vh-7rem)] overflow-y-auto space-y-1 text-sm font-medium text-slate-400">
+                <div class="px-3 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Portfolio Index</div>
+                
+                <a href="#team" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all font-bold text-slate-200">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">01</span>
+                    <span>Team Members & Roles</span>
+                </a>
+                <a href="#about" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">02</span>
+                    <span>About CareerLink</span>
+                </a>
+                <a href="#problem" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">03</span>
+                    <span>Problem Statement</span>
+                </a>
+                <a href="#objectives" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">04</span>
+                    <span>Project Objectives</span>
+                </a>
+                <a href="#solution" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">05</span>
+                    <span>Our Solution</span>
+                </a>
+                <a href="#target-users" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">06</span>
+                    <span>Target Users</span>
+                </a>
+                <a href="#schools" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">07</span>
+                    <span>Applied Tech Schools</span>
+                </a>
+                <a href="#features" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">08</span>
+                    <span>Main Features</span>
+                </a>
+                <a href="#user-journey" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">09</span>
+                    <span>User Journey</span>
+                </a>
+                <a href="#tech" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">10</span>
+                    <span>Tech & Architecture</span>
+                </a>
+                <a href="#sdgs" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">11</span>
+                    <span>SDGs Goals</span>
+                </a>
+                <a href="#impact" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">12</span>
+                    <span>Expected Impact</span>
+                </a>
+                <a href="#future" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">13</span>
+                    <span>Future Development</span>
+                </a>
+                <a href="#conclusion" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-indigo-400 transition-all">
+                    <span class="w-6 text-xs text-indigo-400 font-mono">14</span>
+                    <span>Conclusion</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 space-y-16 min-w-0">
+
+            <!-- HERO / TITLE BANNER -->
+            <section class="relative glass-panel rounded-3xl p-8 sm:p-12 overflow-hidden border border-indigo-500/20 shadow-2xl">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 max-w-3xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-graduation-cap"></i> Graduation Project Portfolio 2026
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-white">
+                        CAREER<span class="gradient-text">LINK</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-light text-slate-300">
+                        Connecting Applied Technology Students with Their Future Careers
+                    </p>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        CareerLink bridges the gap between technical education and employment by creating a central space where students explore careers, graduates secure jobs, and companies find qualified talent.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#team" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+                            <i class="fa-solid fa-users text-sm"></i>
+                            <span>Meet Team Members First</span>
+                        </a>
+                        <a href="#user-journey" class="px-6 py-3 rounded-xl glass-panel hover:bg-slate-800 text-slate-200 font-semibold transition-all border border-slate-700 flex items-center gap-2">
+                            <span>Interactive User Journey</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 01: THE PEOPLE BEHIND CAREERLINK (TEAM FIRST) -->
+            <section id="team" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 font-bold">01</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Team Members & Roles / <span class="text-indigo-400 font-arabic">أعضاء الفريق</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Member 1 -->
+                    <div class="glass-panel-hover p-6 rounded-2xl border border-indigo-500/40 bg-indigo-950/20 space-y-4 shadow-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-lg shadow-md shadow-indigo-600/30">
+                                AI
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Adham Ibrahim</h3>
+                                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">TEAM LEADER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Organizes the team, distributes tasks, guides members, makes key decisions, and monitors overall project progress.
+                        </p>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="glass-panel-hover p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-lg shadow-md">
+                                AE
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Adam El-Sayed</h3>
+                                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300">TIME KEEPER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Manages time, organizes deadlines, follows up on tasks, and ensures the team completes work on schedule.
+                        </p>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="glass-panel-hover p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-lg shadow-md">
+                                NM
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Nora Mohamed</h3>
+                                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">REPORTER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Collects and presents research information, documents important findings, and regularly reports progress.
+                        </p>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="glass-panel-hover p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-lg shadow-md">
+                                NM
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Nour Mahmoud</h3>
+                                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">RECORDER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Records meeting notes, discussions, and decisions, organizing all collected data systematically.
+                        </p>
+                    </div>
+
+                    <!-- Member 5 -->
+                    <div class="glass-panel-hover p-6 rounded-2xl border border-slate-800 space-y-4 sm:col-span-2 lg:col-span-1">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-pink-600 text-white font-bold flex items-center justify-center text-lg shadow-md">
+                                MA
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Mariam Ahmed</h3>
+                                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-pink-500/20 text-pink-300">TEAM MEMBER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Supports team tasks, tests feature implementations, identifies bugs, and suggests creative improvements.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: ABOUT CAREERLINK -->
+            <section id="about" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 font-bold">02</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">About CareerLink / <span class="text-indigo-400 font-arabic">نبذة عن المشروع</span></h2>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        CareerLink is a digital platform designed to connect Applied Technology students and graduates with companies and opportunities in the labor market. The platform provides a central space where students can explore career opportunities, graduates can find suitable jobs, and companies can discover qualified candidates.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-6 pt-4">
+                        <div class="glass-panel-hover rounded-xl p-6 border border-slate-800 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Our Vision</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                To become a trusted platform that connects technical education with the future of employment.
+                            </p>
+                        </div>
+
+                        <div class="glass-panel-hover rounded-xl p-6 border border-slate-800 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Our Mission</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                To empower students and graduates by providing access to jobs, internships, training programs, and professional development opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: PROBLEM STATEMENT -->
+            <section id="problem" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-rose-500/20 text-rose-400 font-bold">03</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Problem Statement / <span class="text-rose-400 font-arabic">المشكلة</span></h2>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6 border border-rose-500/20">
+                    <p class="text-slate-300 text-base">
+                        Many Applied Technology students and graduates face significant challenges when searching for suitable career opportunities. These barriers create a gap between technical education and the labor market:
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                            <div class="text-rose-400 text-lg mt-0.5"><i class="fa-solid fa-circle-exclamation"></i></div>
+                            <p class="text-sm text-slate-300">Limited access to job opportunities related to their specializations.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                            <div class="text-rose-400 text-lg mt-0.5"><i class="fa-solid fa-plug-circle-xmark"></i></div>
+                            <p class="text-sm text-slate-300">Difficulty connecting directly with companies and employers.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                            <div class="text-rose-400 text-lg mt-0.5"><i class="fa-solid fa-folder-minus"></i></div>
+                            <p class="text-sm text-slate-300">Lack of organized information about schools and their departments.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                            <div class="text-rose-400 text-lg mt-0.5"><i class="fa-solid fa-eye-slash"></i></div>
+                            <p class="text-sm text-slate-300">Limited awareness of available internships and training programs.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
+                            <div class="text-rose-400 text-lg mt-0.5"><i class="fa-solid fa-sliders"></i></div>
+                            <p class="text-sm text-slate-300">Difficulty matching students' specialized skills with company requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: PROJECT OBJECTIVES -->
+            <section id="objectives" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 font-bold">03</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Project Objectives / <span class="text-amber-400 font-arabic">الأهداف</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">1</span>
+                        <p class="text-slate-300 text-sm">Connect students and graduates directly with companies.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">2</span>
+                        <p class="text-slate-300 text-sm">Provide organized information about Applied Technology Schools.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">3</span>
+                        <p class="text-slate-300 text-sm">Make job opportunities easier to discover, search, and access.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">4</span>
+                        <p class="text-slate-300 text-sm">Support professional development through training & internships.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">5</span>
+                        <p class="text-slate-300 text-sm">Help companies discover and recruit qualified technical candidates.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-xl flex items-start gap-4">
+                        <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 font-bold flex items-center justify-center shrink-0">6</span>
+                        <p class="text-slate-300 text-sm">Improve communication between educational institutions & labor market.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 04: OUR SOLUTION -->
+            <section id="solution" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold">04</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Our Solution / <span class="text-emerald-400 font-arabic">الحل</span></h2>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6 border border-emerald-500/20">
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        CareerLink provides an integrated digital platform that brings students, graduates, companies, and administrators together into one synchronized ecosystem.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-user-check text-emerald-400"></i>
+                            <span class="text-slate-300 text-sm">Create personal accounts & professional profiles</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-briefcase text-emerald-400"></i>
+                            <span class="text-slate-300 text-sm">Explore job vacancies & training opportunities</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
+                            <span class="text-slate-300 text-sm">Search internships & educational courses</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-school text-emerald-400"></i>
+                            <span class="text-slate-300 text-sm">Discover Applied Tech Schools & specializations</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 05: TARGET USERS -->
+            <section id="target-users" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 font-bold">05</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Target Users / <span class="text-cyan-400 font-arabic">الفئات المستهدفة</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- User Card 1 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-user-graduate"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">Category 01</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Students</h3>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Create profiles, explore opportunities, discover training programs, and develop technical skills early on.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- User Card 2 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Category 02</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Graduates</h3>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Showcase qualifications, search for suitable jobs, apply for vacancies, and connect directly with hiring managers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- User Card 3 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">Category 03</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Companies</h3>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Create business profiles, publish job vacancies, offer internships, and scout qualified technical candidates.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- User Card 4 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">Category 04</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Administrators</h3>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                                Manage user accounts, verify schools, monitor opportunities, manage content, and oversee system activity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 06: APPLIED TECH SCHOOLS -->
+            <section id="schools" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 font-bold">06</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Applied Technology Schools / <span class="text-indigo-400 font-arabic">المدارس التكنولوجية</span></h2>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-6">
+                    <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
+                        <div class="space-y-3 max-w-2xl">
+                            <h3 class="text-xl font-bold text-white">Initial Scope: 15 Selected Schools in Egypt</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                CareerLink focuses on organizing school information and seamlessly connecting educational specializations with relevant real-world career paths.
+                            </p>
+                        </div>
+                        <div class="shrink-0 text-center px-6 py-4 rounded-xl bg-indigo-900/40 border border-indigo-500/30">
+                            <span class="text-4xl font-extrabold text-indigo-400 block">15</span>
+                            <span class="text-xs text-slate-300 font-medium uppercase tracking-wider">Targeted Schools</span>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+                            <i class="fa-solid fa-location-dot text-indigo-400 mb-2 block"></i>
+                            <h4 class="text-sm font-semibold text-white">Names & Locations</h4>
+                            <p class="text-xs text-slate-400 mt-1">Geographic directory of technology hubs across Egypt.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+                            <i class="fa-solid fa-microchip text-indigo-400 mb-2 block"></i>
+                            <h4 class="text-sm font-semibold text-white">Specializations & Fields</h4>
+                            <p class="text-xs text-slate-400 mt-1">Detailed index of departments and technical fields.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+                            <i class="fa-solid fa-route text-indigo-400 mb-2 block"></i>
+                            <h4 class="text-sm font-semibold text-white">Career Alignment</h4>
+                            <p class="text-xs text-slate-400 mt-1">Direct mapping of academic paths to market demands.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 07: MAIN FEATURES -->
+            <section id="features" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-teal-500/20 text-teal-400 font-bold">07</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Main Features / <span class="text-teal-400 font-arabic">المميزات الرئيسية</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">User Management</h3>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li>Role-based account categories</li>
+                            <li>Secure Registration & Login</li>
+                            <li>Personal & Professional profiles</li>
+                            <li>Profile management dashboard</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Career Opportunities</h3>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li>Job vacancy listings</li>
+                            <li>Practical training programs</li>
+                            <li>Student internships</li>
+                            <li>Skill enhancement courses</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Smart Search</h3>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li>Filter opportunities by field</li>
+                            <li>Explore schools & departments</li>
+                            <li>Find tailored career paths</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Company Services</h3>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li>Company profiles & verification</li>
+                            <li>Publish & manage job posts</li>
+                            <li>Review candidate profiles</li>
+                            <li>Track applicant pipelines</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Administration</h3>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li>Manage accounts & permissions</li>
+                            <li>School information database</li>
+                            <li>Opportunity verification</li>
+                            <li>System metrics & data organization</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 08: USER JOURNEY (INTERACTIVE) -->
+            <section id="user-journey" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 font-bold">08</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">User Journey / <span class="text-indigo-400 font-arabic">رحلة المستخدم</span></h2>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 space-y-8">
+                    <!-- Journey Stepper -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
+                        <!-- Step 1 -->
+                        <div id="step-1" class="journey-step cursor-pointer p-4 rounded-xl bg-indigo-600/30 border border-indigo-500 transition-all text-center space-y-2">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center mx-auto text-sm">1</div>
+                            <h4 class="font-bold text-white text-sm">1. Login</h4>
+                            <p class="text-slate-400 text-xs">Access platform accounts</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div id="step-2" class="journey-step cursor-pointer p-4 rounded-xl bg-slate-900/60 border border-slate-800 transition-all text-center space-y-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 font-bold flex items-center justify-center mx-auto text-sm">2</div>
+                            <h4 class="font-bold text-white text-sm">2. Account Type</h4>
+                            <p class="text-slate-400 text-xs">Student, Grad, Company</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div id="step-3" class="journey-step cursor-pointer p-4 rounded-xl bg-slate-900/60 border border-slate-800 transition-all text-center space-y-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 font-bold flex items-center justify-center mx-auto text-sm">3</div>
+                            <h4 class="font-bold text-white text-sm">3. Registration</h4>
+                            <p class="text-slate-400 text-xs">Enter specialized info</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div id="step-4" class="journey-step cursor-pointer p-4 rounded-xl bg-slate-900/60 border border-slate-800 transition-all text-center space-y-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 font-bold flex items-center justify-center mx-auto text-sm">4</div>
+                            <h4 class="font-bold text-white text-sm">4. Dashboard</h4>
+                            <p class="text-slate-400 text-xs">Custom feature view</p>
+                        </div>
+                    </div>
+
+                    <!-- Step Display Info Box -->
+                    <div id="journey-info-box" class="p-6 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex items-start gap-4">
+                        <div class="text-3xl text-indigo-400"><i class="fa-solid fa-right-to-bracket"></i></div>
+                        <div>
+                            <h4 id="journey-title" class="text-lg font-bold text-white">Step 1: Login & Authentication</h4>
+                            <p id="journey-desc" class="text-slate-300 text-sm mt-1 leading-relaxed">
+                                Users access the CareerLink platform securely using registered credentials or initiate a new registration workflow.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 09 & 10: TECHNOLOGIES USED & SYSTEM ARCHITECTURE -->
+            <section id="tech" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 font-bold">09 & 10</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Technologies & System Architecture / <span class="text-cyan-400 font-arabic">التقنيات وبنية النظام</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Frontend -->
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Frontend Architecture</h3>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">HTML5</strong> – Semantic Website Structure</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-mono">Markup</span>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">CSS3</strong> – Styling & Design Framework</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono">Style</span>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">Responsive Web Design</strong> – Adaptive Layouts</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-mono">Mobile</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Backend & System Core</h3>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">Python</strong> – Core Logic Language</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-300 font-mono">Core</span>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">Flask</strong> – Web Application Framework</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-slate-500/20 text-slate-300 font-mono">Framework</span>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-slate-900/40 border border-slate-800">
+                                <span><strong class="text-white">System Components</strong> – Auth & Data Management</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">Security</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 11: SUSTAINABLE DEVELOPMENT GOALS (SDGs) -->
+            <section id="sdgs" class="scroll-mt-24 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold">11</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Sustainable Development Goals (SDGs) / <span class="text-emerald-400 font-arabic">أهداف التنمية المستدامة</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- SDG 4 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border-t-4 border-red-500 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-red-500">SDG 4</span>
+                            <i class="fa-solid fa-book-open text-red-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white">Quality Education</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Supporting technical education and broadening access to professional learning opportunities.
+                        </p>
+                    </div>
+
+                    <!-- SDG 8 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border-t-4 border-rose-700 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-rose-700">SDG 8</span>
+                            <i class="fa-solid fa-chart-line text-rose-500 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white">Decent Work & Growth</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Connecting graduates directly with job opportunities and fostering workforce development.
+                        </p>
+                    </div>
+
+                    <!-- SDG 9 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border-t-4 border-orange-500 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-orange-500">SDG 9</span>
+                            <i class="fa-solid fa-industry text-orange-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white">Industry & Innovation</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Leveraging digital technology to strengthen links between academic education and industry.
+                        </p>
+                    </div>
+
+                    <!-- SDG 10 -->
+                    <div class="glass-panel-hover rounded-2xl p-6 border-t-4 border-pink-500 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-pink-500">SDG 10</span>
+                            <i class="fa-solid fa-scale-balanced text-pink-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white">Reduced Inequalities</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Ensuring equal, structured access to career opportunities for all technical students.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 12 & 13 & 14: EXPECTED IMPACT, FUTURE DEVELOPMENT & CONCLUSION -->
+            <section id="impact" class="scroll-mt-24 space-y-8">
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 font-bold">12, 13 & 14</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Impact, Roadmap & Conclusion / <span class="text-amber-400 font-arabic">الأثر والتطوير المستقبلي والخاتمة</span></h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Expected Impact -->
+                    <div class="glass-panel p-6 rounded-2xl space-y-4">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-emerald-400"></i>
+                            Expected Impact
+                        </h3>
+                        <ul class="space-y-2 text-xs text-slate-300 list-disc list-inside">
+                            <li>Better, more direct access to employment opportunities.</li>
+                            <li>Stronger structural connections between education & industry.</li>
+                            <li>Improved awareness of technical career pathways.</li>
+                            <li>Streamlined communication between candidates & employers.</li>
+                            <li>Centralized, organized repository of technical career data.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Future Improvements -->
+                    <div id="future" class="glass-panel p-6 rounded-2xl space-y-4">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-rocket text-indigo-400"></i>
+                            Future Roadmap
+                        </h3>
+                        <ul class="space-y-2 text-xs text-slate-300 list-disc list-inside">
+                            <li>Expand platform scope to more Applied Tech Schools across Egypt.</li>
+                            <li>Develop advanced candidate-job matching algorithms.</li>
+                            <li>Introduce AI-powered career guidance & recommendations.</li>
+                            <li>Launch a dedicated mobile application (iOS/Android).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SECTION 14: CONCLUSION -->
+                <div id="conclusion" class="glass-panel rounded-3xl p-8 sm:p-10 border border-indigo-500/30 text-center space-y-6 relative overflow-hidden">
+                    <div class="max-w-2xl mx-auto space-y-4">
+                        <h3 class="text-2xl font-bold text-white">Conclusion / <span class="text-indigo-400 font-arabic">الخاتمة</span></h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            CareerLink is more than a job-search platform. It is a vital digital bridge between technical education and the evolving labor market. By connecting students, graduates, and companies, we empower youth, foster professional growth, and contribute to a more connected future.
+                        </p>
+                        <div class="pt-4">
+                            <span class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-emerald-500 text-white font-bold text-sm shadow-xl">
+                                CareerLink – Your Skills, Your Opportunities, Your Future.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800 mt-16 py-8 px-4 text-center text-xs text-slate-500 space-y-2">
+        <p>© 2026 CareerLink Graduation Project Portfolio. All rights reserved.</p>
+        <p>Connecting Applied Technology Students with Their Future Careers</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive User Journey Logic
+        const journeySteps = [
+            {
+                step: 1,
+                title: "Step 1: Login & Authentication",
+                desc: "Users access the CareerLink platform securely using their registered credentials or initiate a new account setup."
+            },
+            {
+                step: 2,
+                title: "Step 2: Choose Account Type",
+                desc: "Users select their primary role category: Student, Graduate, Company, or System Administrator to customize their view."
+            },
+            {
+                step: 3,
+                title: "Step 3: Account Registration",
+                desc: "New users complete their specialized profiles by entering educational credentials, technical skills, or corporate details."
+            },
+            {
+                step: 4,
+                title: "Step 4: Tailored Dashboard",
+                desc: "Users unlock custom dashboard features—students explore internships, graduates apply for jobs, and companies recruit talent."
+            }
+        ];
+
+        const stepsElements = [
+            document.getElementById('step-1'),
+            document.getElementById('step-2'),
+            document.getElementById('step-3'),
+            document.getElementById('step-4')
+        ];
+
+        const titleElem = document.getElementById('journey-title');
+        const descElem = document.getElementById('journey-desc');
+
+        stepsElements.forEach((stepEl, idx) => {
+            stepEl.addEventListener('click', () => {
+                // Reset all
+                stepsElements.forEach(el => {
+                    el.className = "journey-step cursor-pointer p-4 rounded-xl bg-slate-900/60 border border-slate-800 transition-all text-center space-y-2";
+                    const badge = el.querySelector('div');
+                    badge.className = "w-8 h-8 rounded-full bg-slate-800 text-slate-400 font-bold flex items-center justify-center mx-auto text-sm";
+                });
+
+                // Active current
+                stepEl.className = "journey-step cursor-pointer p-4 rounded-xl bg-indigo-600/30 border border-indigo-500 transition-all text-center space-y-2";
+                const activeBadge = stepEl.querySelector('div');
+                activeBadge.className = "w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center mx-auto text-sm";
+
+                // Update text
+                titleElem.textContent = journeySteps[idx].title;
+                descElem.textContent = journeySteps[idx].desc;
+            });
+        });
+    </script>
+</body>
+</html>
